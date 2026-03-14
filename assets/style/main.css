@@ -1,0 +1,207 @@
+/* ============================================
+   CUMPLEDATA S.A.S. — Custom Styles
+   Complementary to Tailwind CDN
+   ============================================ */
+
+/* ---- Smooth scroll ---- */
+html {
+  scroll-behavior: smooth;
+  scroll-padding-top: 5rem;
+  overflow-x: hidden;
+}
+
+body {
+  overflow-x: hidden;
+}
+
+/* ---- Selection color ---- */
+::selection {
+  background-color: #2a3a7c;
+  color: white;
+}
+
+/* ---- Scrollbar styling ---- */
+::-webkit-scrollbar {
+  width: 8px;
+}
+
+::-webkit-scrollbar-track {
+  background: #e9eaec;
+}
+
+::-webkit-scrollbar-thumb {
+  background: #1d213c40;
+  border-radius: 999px;
+}
+
+::-webkit-scrollbar-thumb:hover {
+  background: #1d213c80;
+}
+
+@media (prefers-color-scheme: dark) {
+  ::-webkit-scrollbar-track {
+    background: #12142a;
+  }
+  ::-webkit-scrollbar-thumb {
+    background: #ffffff30;
+  }
+  ::-webkit-scrollbar-thumb:hover {
+    background: #ffffff50;
+  }
+}
+
+/* ---- Navbar scroll effect ---- */
+#navbar.scrolled {
+  box-shadow: 0 4px 30px rgba(0, 0, 0, 0.08);
+}
+
+@media (prefers-color-scheme: dark) {
+  #navbar.scrolled {
+    box-shadow: 0 4px 30px rgba(0, 0, 0, 0.3);
+  }
+}
+
+/* ---- Mobile menu animation ---- */
+#mobile-menu.open {
+  max-height: 400px;
+}
+
+/* ---- FAQ accordion ---- */
+.faq-item.active .faq-toggle i {
+  transform: rotate(180deg);
+}
+
+.faq-item.active .faq-content {
+  max-height: 300px;
+}
+
+/* ---- Modal animation ---- */
+@keyframes modalIn {
+  from {
+    opacity: 0;
+    transform: scale(0.95) translateY(20px);
+  }
+  to {
+    opacity: 1;
+    transform: scale(1) translateY(0);
+  }
+}
+
+@keyframes modalOut {
+  from {
+    opacity: 1;
+    transform: scale(1) translateY(0);
+  }
+  to {
+    opacity: 0;
+    transform: scale(0.95) translateY(20px);
+  }
+}
+
+.animate-modal-in {
+  animation: modalIn 0.3s ease-out forwards;
+}
+
+.animate-modal-out {
+  animation: modalOut 0.2s ease-in forwards;
+}
+
+#data-policy-modal.show {
+  display: flex;
+}
+
+/* ---- WhatsApp float pulse (custom, supplements Tailwind animate-ping) ---- */
+#whatsapp-float {
+  position: fixed;
+}
+
+/* ---- Counter finished state ---- */
+.counter.counted {
+  opacity: 1;
+}
+
+/* ---- Gradient text fallback for older browsers ---- */
+@supports not (background-clip: text) {
+  .bg-clip-text {
+    color: #2a3a7c;
+  }
+}
+
+/* ---- Active nav link ---- */
+.nav-active {
+  color: #2a3a7c;
+}
+
+@media (prefers-color-scheme: dark) {
+  .nav-active {
+    color: #4a5fc1;
+  }
+}
+
+/* ---- Smooth transitions when switching sections ---- */
+section {
+  position: relative;
+}
+
+/* ---- Ensure minimum width on very small screens ---- */
+@media screen and (max-width: 359px) {
+  body {
+    min-width: 360px;
+    overflow-x: auto;
+  }
+}
+
+/* ---- Hero gradient text animation ---- */
+@keyframes gradientShift {
+  0%, 100% {
+    background-position: 0% 50%;
+  }
+  50% {
+    background-position: 100% 50%;
+  }
+}
+
+#hero h1 .bg-gradient-to-r {
+  background-size: 200% 200%;
+  animation: gradientShift 4s ease-in-out infinite;
+}
+
+/* ---- Service card shine effect on hover ---- */
+#servicios .group::before {
+  content: '';
+  position: absolute;
+  top: 0;
+  left: -100%;
+  width: 100%;
+  height: 100%;
+  background: linear-gradient(90deg, transparent, rgba(255,255,255,0.05), transparent);
+  transition: left 0.6s ease;
+  z-index: 0;
+}
+
+#servicios .group:hover::before {
+  left: 100%;
+}
+
+/* ---- Focus visible styles (accessibility) ---- */
+:focus-visible {
+  outline: 2px solid #2a3a7c;
+  outline-offset: 2px;
+  border-radius: 4px;
+}
+
+@media (prefers-color-scheme: dark) {
+  :focus-visible {
+    outline-color: #4a5fc1;
+  }
+}
+
+/* ---- Print styles ---- */
+@media print {
+  #navbar,
+  #whatsapp-float,
+  #data-policy-modal,
+  .animate-ping {
+    display: none !important;
+  }
+}
