@@ -1,0 +1,5 @@
+User-agent: *
+Allow: /
+Disallow: /context/
+
+Sitemap: https://cumpledata.com/sitemap.xml
